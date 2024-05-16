@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="judul-admin">
-        <h3>pencatat Hutang Teman</h3>       
+        <h3>APOTEKER</h3>       
         <hr>
     </div>
     <div class="wrap">
@@ -11,28 +11,29 @@
             <table border="1">
                 <thead>
                     <tr>
-                        <th>NAMA TEMAN</th>
-                        <th>TANGGAL PEMINJAMAN</th>
-                        <th>BUKTI TRANSAKI</th>
-                        <th>KETERANGAN</th>
+                        <th>GAMBAR</th>
+                        <th>NAMA OBAT</th>
+                        <th>HARGA</th>
+                        <th>KELUHAN</th>
+                        <th>STOK OBAT</th>
                         <th>AKSI</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($posts as $post)
                         <tr>
-                            
-                                <td>{{ $post->nama_teman }}</td>
-                                <td>{{ date('d-m-Y', strtotime($post->tanggal_peminjaman)) }}</td>
-                                <td>
-                                    @if ($post->bukti_transaksi)
-                                        <img src="{{ asset('storage/posts/'.$post->bukti_transaksi) }}" class="rounded" style="width: 150px">
-                                    @else
-                                        Tidak ada bukti transaksi.
-                                    @endif
-                                </td>
-                                <td>{{ $post->keterangan }}</td>
-                                <td class="text-center">
+                            <td>
+                                @if ($post->gambar)
+                                    <img src="{{ asset('storage/posts/'.$post->gambar) }}" class="rounded" style="width: 150px">
+                                @else
+                                    Tidak ada gambar.
+                                @endif
+                            </td>
+                            <td>{{ $post->nama_obat }}</td>
+                            <td>{{ $post->harga }}</td>
+                            <td>{{ $post->keluhan }}</td>
+                            <td>{{ $post->stok_obat }}</td>
+                            <td class="text-center">
                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                     <a href="{{ route('posts.show', $post->id) }}" class="biru">SHOW</a>
                                     <a href="{{ route('posts.edit', $post->id) }}" class="kuning">EDIT</a>
@@ -44,9 +45,9 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="text-center">
+                            <td colspan="6" class="text-center">
                                 <div class="alert-blomada">
-                                    Data Hutang Teman belum Tersedia.
+                                    Data obat belum Tersedia.
                                 </div>
                             </td>
                         </tr>

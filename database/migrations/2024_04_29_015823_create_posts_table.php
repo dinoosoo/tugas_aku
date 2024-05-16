@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_teman');
-            $table->date('tanggal_peminjaman');
-            $table->string('bukti_transaksi')->nullable();
-            $table->text('keterangan')->nullable();
+            $table->string('gambar');
+            $table->string('nama_obat');
+            $table->decimal('harga', 8, 2);
+            $table->text('keluhan');
+            $table->integer('stok_obat');            
             $table->timestamps();
         });
     }

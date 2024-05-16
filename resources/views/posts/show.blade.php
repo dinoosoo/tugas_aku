@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Detail Data Hutang Teman</title>
+    <title>Detail Data APOTEKER</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body style="background: lightgray">
@@ -14,18 +14,17 @@
             <div class="col-md-8">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        @if ($post->bukti_transaksi)
-                            <img src="{{ asset('storage/posts/'.$post->bukti_transaksi) }}" class="w-100 rounded">
-                        @else
-                            <p>tidak ada bukti transaksi.</p>
-                        @endif
+                        <img src="{{ asset('storage/posts/'.$post->gambar) }}" class="w-100 rounded">
                         <hr>
-                        <h5>Nama Teman: {{ $post->nama_teman }}</h5>
+                        <h4>{{ $post->nama_obat }}</h4>
                         <p class="mt-3">
-                            Tanggal Peminjaman: {{ $post->tanggal_peminjaman }}
+                            Harga: {{ $post->harga }}
                         </p>
                         <p class="mt-3">
-                            Keterangan: {{ $post->keterangan }}
+                            Keluhan: {{ $post->keluhan }}
+                        </p>
+                        <p class="mt-3">
+                            Stok Obat: {{ $post->stok_obat }}
                         </p>
                     </div>
                 </div>

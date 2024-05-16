@@ -8,11 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    
+
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $fillable = [
-        'nama_teman',
-        'tanggal_peminjaman',
-        'bukti_transaksi',
-        'keterangan'
+        'gambar',
+        'nama_obat', 
+        'harga', 
+        'keluhan', 
+        'stok_obat',
     ];
 }
